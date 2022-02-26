@@ -22,5 +22,6 @@
         <module>mall_product</module>
         <module>mall_ware</module>
         <module>renren-fast</module>
+        <module>mall_common</module>
     </modules>
 </project>
