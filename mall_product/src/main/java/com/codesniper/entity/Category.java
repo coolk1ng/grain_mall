@@ -1,7 +1,11 @@
 package com.codesniper.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 商品三级分类(Category)表实体类
@@ -10,6 +14,7 @@ import java.io.Serializable;
  * @since 2022-03-14 16:39:40
  */
 @SuppressWarnings("serial")
+@TableName(value = "pms_category")
 public class Category extends Model<Category> {
     //分类id
     private Long catId;
@@ -29,7 +34,17 @@ public class Category extends Model<Category> {
     private String productUnit;
     //商品数量
     private Integer productCount;
+    //子菜单
+    @TableField(exist = false)
+    private List<Category> children;
 
+    public List<Category> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<Category> children) {
+        this.children = children;
+    }
 
     public Long getCatId() {
         return catId;
